@@ -1,21 +1,21 @@
 ---
-- name: deploying apache config changes across multiple webservers
-  hosts: web
-  become_true: yes
-  tasks:
+- 
+   hosts: web
+   name: installing apache
+   become_user: ansible
+   tasks:
  
+    - name: installing apache 
+      yum: 
+        name: httpd
+        state: latest
 
-  - name: installing apache 
-    yum: 
-      name: httpd
-      service: latest
-
-  - name: start, and enable http service
-    service:
-      name: httpd
-      state: started
+    - name: start, and enable http service
+      service:
+        name: httpd
+        state: started
   
-  - name: creating a html directory to display content
-    file:
-      path: /var/www/html/team1/
-      state: directory
+#   - name: creating a html directory to display content
+#     file:
+#       path: /var/www/html/team1/
+#       state: directory
