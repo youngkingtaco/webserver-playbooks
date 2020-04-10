@@ -1,0 +1,9 @@
+---
+- name: deploying apache config changes across multiple webservers
+  hosts: web
+  become_true: yes
+
+  - tasks:
+      name: install apache package
+      yum: httpd
+      state: latest
