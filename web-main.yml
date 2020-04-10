@@ -1,0 +1,21 @@
+---
+- name: deploying apache config changes across multiple webservers
+  hosts: web
+
+	tasks:
+	  - name: installing apache
+		  yum:
+			  name: httpd
+				state: latest
+
+		- name: starting, and enabling apache
+		  service:
+			  name: httpd
+				state: started
+
+		- name: creating a html directory
+		  file:
+			   path: /var/www/html/team1/
+				 state: directory
+				 mode: '0755'
+				 
