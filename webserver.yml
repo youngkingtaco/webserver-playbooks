@@ -1,7 +1,8 @@
 ---
 - name: installing apache accross multiple servers
-  become_user: ansible
-  hosts: prdx-webserver217.ziyotek1.local
+  remote_user: ansible
+  gather_facts: yes
+  hosts: web
   tasks:
 
   - name: installing apache
@@ -13,13 +14,14 @@
     service:
       name: httpd
       state: started
+      enabled: yes
 
   - name: creating a html directory to server content
     file:
       path: /var/www/html/team1/
       state: directory
+      mode: '0777'
   - name: creating an index file within team1 html directory
     file:
       path: /var/www/html/team1/index.html
       state: file
-      
