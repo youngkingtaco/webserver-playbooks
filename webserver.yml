@@ -4,10 +4,10 @@
   hosts: prdx-webserver217.ziyotek1.local
   tasks:
 
-  - name: installing apache
-    yum:
-      name: httpd
-      service: latest
+# - name: installing apache
+#    yum:
+#     name: httpd
+#     service: latest
 
   - name: start, and enable http service
     service:
