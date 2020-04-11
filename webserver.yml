@@ -15,3 +15,11 @@
       state: started
 
   - name: creating a html directory to server content
+    file:
+      path: /var/www/html/team1/
+      state: directory
+  - name: creating an index file within team1 html directory
+    file:
+      path: /var/www/html/team1/index.html
+      state: file
+      
