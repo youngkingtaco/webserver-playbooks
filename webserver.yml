@@ -1,7 +1,7 @@
 ---
 - name: installing apache accross multiple servers
   become_user: ansible
-  hosts: web
+  hosts: prdx-webserver217.ziyotek1.local
   tasks:
 
   - name: installing apache
