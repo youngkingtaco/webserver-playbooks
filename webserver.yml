@@ -2,7 +2,7 @@
 - name: installing apache accross multiple servers
   remote_user: ansible
   gather_facts: yes
-  hosts: web
+  hosts: prdx-webserver217.ziyotek1.local
   tasks:
 
   - name: installing apache
@@ -25,3 +25,4 @@
     file:
       path: /var/www/html/team1/index.html
       state: file
+      mode: '0777'
