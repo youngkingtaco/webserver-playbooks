@@ -1,0 +1,15 @@
+---
+- name: installing apache accross multiple servers
+  become_user: ansible
+  hosts: web
+  tasks:
+
+  - name: installing apache
+    yum:
+      name: httpd
+      service: latest
+
+  - name: start, and enable http service
+    service:
+      name: httpd
+      state: started
