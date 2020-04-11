@@ -1,9 +1,14 @@
+###if you use become_user:ansible, you will get something weird such as "you dont have enough access to perform this operation". #######
+
 ---
 - 
    hosts: web
    name: installing apache
-   become_user: ansible
+   gather_facts: yes
+   remote_user: ansible
+#  become_user: ansible##
    tasks:
+
  
     - name: installing apache 
       yum: 
@@ -13,8 +18,8 @@
     - name: start, and enable http service
       service:
         name: httpd
-        state: started
-  
+        state: started 
+        enabled: yes
 #   - name: creating a html directory to display content
 #     file:
 #       path: /var/www/html/team1/
