@@ -54,5 +54,5 @@
 #       state: restarted
   - name: Deploying http.config template across our webservers
     template:
-      src: "{{ github_folder }}"/ansible-templates/httpd_conf.j2
+      src: "{{ github_folder }}/ansible-templates/httpd_conf.j2"
       dest: /etc/httpd/conf/httpd.conf
