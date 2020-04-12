@@ -9,8 +9,8 @@
   tasks:
   - name: installing apache
     yum:
-      name: httpd
-      service: latest
+      name:  httpd
+      state: latest
   - name: start, and enable http service
     service:
       name: httpd
