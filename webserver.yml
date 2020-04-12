@@ -9,13 +9,11 @@
     yum:
       name: httpd
       service: latest
-
   - name: start, and enable http service
     service:
       name: httpd
       state: started
       enabled: yes
-
   - name: creating a html directory to server content
     file:
       path: /var/www/html/team1/
@@ -26,3 +24,13 @@
       path: /var/www/html/team1/index.html
       state: touch
       mode: '0777'
+  - name: Opening firewalls ---- Port 80 (HTTP enabled)
+    firewalld:
+      service: http
+      permanent: yes
+      state: disabled
+  - name: Restarting Firewall Daemon
+    service:
+      name: firewalld
+      state: restarted
+      
