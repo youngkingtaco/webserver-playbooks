@@ -44,14 +44,17 @@
 #     state: restarted
   - name: uploading content to our index file, and restart apache if a config has been made.
     template:
-      src: home/ansible/Lab_Porject/webserver-playbooks/deploy_content.j2
+      src: /home/ansible/Lab_Porject/webserver-playbooks/deploy_content.j2
       dest: /var/www/html/team1/index.html
       mode: '0755'
-    become: yes
+      follow: yes
+      force: yes
 #   notify: restart apache
 #   service:
 #     name: httpd
 #     state: restarted
+#     mode: "0755"
+#     follow: yes
 
   - name: Deploying http.config template across our webservers
     template:
