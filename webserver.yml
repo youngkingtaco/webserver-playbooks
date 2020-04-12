@@ -41,17 +41,17 @@
 #   service:
 #     name: firewalld
 #     state: restarted
-# - name: uploading content to our index file, and restart apache if a config has been made.
-#   copy:
-#     src: "{{ github_folder }}"/deploy_content.j2
-#     dest: /var/www/html/team1/index.html
-#   notify: restart apache
-#### I need to take a look to the variables
-# handlers:
-#   - name: restart apache (httpd)
-#     service:
-#       name: httpd
-#       state: restarted
+  - name: uploading content to our index file, and restart apache if a config has been made.
+    copy:
+      src: "{{ github_folder }}"/deploy_content.j2
+      dest: /var/www/html/team1/index.html
+   notify: restart apache
+
+  handlers:
+    - name: restart apache (httpd)
+      service:
+        name: httpd
+        state: restarted
   - name: Deploying http.config template across our webservers
     template:
       src: "{{ github_folder }}/ansible-templates/httpd_conf.j2"
