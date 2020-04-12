@@ -43,8 +43,13 @@
 #     name: firewalld
 #     state: restarted
   - name: uploading content to our index file, and restart apache if a config has been made.
+<<<<<<< HEAD
     template:
       src: "{{ github_folder }}/ansible-templates/deploy_content.j2"
+=======
+    copy:
+      src: home/ansible/Lab_Porject/webserver-playbooks/deploy_content.j2
+>>>>>>> d4ecb2741154d7515beae4e39c187b19651b893b
       dest: /var/www/html/team1/index.html
       mode: '0755'
     become: yes
@@ -57,6 +62,6 @@
 
   - name: Deploying http.config template across our webservers
     template:
-      src: "{{ github_folder }}/ansible-templates/httpd_conf.j2"
+      src: /home/ansible/Lab_Porject/webserver-playbooks/ansible-templates/httpd_conf.j2
       dest: /etc/httpd/conf/httpd.conf
     become: yes
