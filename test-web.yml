@@ -1,4 +1,4 @@
-##### is just for testing purposes#####
+##### just for testing purposes#####
 ---
 - name: testing this template
   hosts: prdx-webserver217.ziyotek1.local
