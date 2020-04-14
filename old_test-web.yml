@@ -1,0 +1,26 @@
+---
+- name: testing this template
+  hosts: prdx-webserver217.ziyotek1.local
+  remote_user: ansible
+  gather_facts: no
+  become: yes
+  vars: 
+    content: /home/ansible/Lab_Porject/webserver-playbooks
+
+  tasks:
+    - name: push config template
+      template: 
+        src: "{{ content }}/ansible-templates/httpd_conf.j2"
+        dest: /etc/httpd/conf/httpd.conf
+        backup: yes
+#     notify: "restart apache"
+    - name: push index.html template
+      template: 
+        src: "{{ content }}/ansible-templates/deploy_content.j2"
+        dest: /var/www/html/team1/index.html
+# handlers:
+#   - name: restart webservers
+#     service: 
+#       name: httpd
+#       state: restarted
+#      listen: "restart apache"
