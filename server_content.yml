@@ -1,0 +1,15 @@
+---
+- name: testing this template
+  hosts: prdx-webserver217.ziyotek1.local
+  remote_user: ansible
+  gather_facts: no
+  become: yes
+  vars:
+   content: /home/ansible/Lab_Porject/webserver-playbooks
+
+	tasks:
+
+    name: push index.html template
+    copy:
+      src: "{{ content }}/ansible-templates/serve_content"
+      dest: /var/www/html/team1/index.html
