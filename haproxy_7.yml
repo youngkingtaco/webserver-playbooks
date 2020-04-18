@@ -1,5 +1,5 @@
 ---
-- name: building CentOS7 haproxy
+- name: building CentOS7 HAproxy 
   become: yes
 	hosts: haproxy
 	vars:
@@ -26,4 +26,3 @@
 	  service:
 		  name: haproxy
 			state: restarted
-	
