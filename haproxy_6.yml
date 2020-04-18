@@ -9,18 +9,18 @@
   - name: installing haproxy
     yum:
       name: haproxy
-     state: latest
+      state: latest
   
   - name: start and enable haproxy
     service:
       name: haproxy
-     state: started
-     enabled: yes
+      state: started
+      enabled: yes
 
   - name: configuring haproxy
-   template:
-     src: {{ vars }}/ansible-templates/haproxy.cfg.j2
-     dest: /etc/haproxy/haproxy.cfg
+    template:
+      src: "{{ content }}/ansible-templates/haproxy.cfg.j2"
+      dest: /etc/haproxy/haproxy.cfg
 
   - name: restart haproxy
     service:
