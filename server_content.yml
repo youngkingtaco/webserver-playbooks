@@ -7,7 +7,7 @@
   vars:
    content: /home/ansible/Lab_Porject/webserver-playbooks
 
-	tasks:
+  tasks:
 
     name: push index.html template
     copy:
