@@ -1,0 +1,29 @@
+---
+- name: building CentOS7 haproxy
+  become: yes
+	hosts: haproxy
+	vars:
+	  content: /home/ansible/Lab_Porject/webserver-playbooks
+
+	tasks:
+
+	- name: installing haproxy
+	  yum:
+		  name: haproxy
+			state: latest
+	- name: start and enable haproxy
+	  service:
+		  name: haproxy
+			state: started
+			enabled: yes
+
+	- name: configuring haproxy
+	  template:
+		  src: {{ vars }}/ansible-templates/haproxy.cfg.j2
+			dest: /etc/haproxy/haproxy.cfg
+
+	- name: restart haproxy
+	  service:
+		  name: haproxy
+			state: restarted
+	
