@@ -24,4 +24,4 @@
      service:
        name: httpd
        state: restarted
-     listen: "restart apache"
+     listen: restart apache
